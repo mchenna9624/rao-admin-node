@@ -46,7 +46,7 @@ client.connect(err => {
     });	
 
     app.post('/categories', (req, res) => {
-      quotesCollection.insertOne(req.body)
+      categoriesCollection.insertOne(req.body)
         .then(result => {
           res.json({});
         })
@@ -54,7 +54,7 @@ client.connect(err => {
     });
 
     app.put('/categories', (req, res) => {
-      quotesCollection.findOneAndUpdate(
+      categoriesCollection.findOneAndUpdate(
         { name: 'Yoda' },
         {
           $set: {
@@ -71,7 +71,7 @@ client.connect(err => {
     });
 
     app.delete('/categories', (req, res) => {
-      quotesCollection.deleteOne(
+      categoriesCollection.deleteOne(
         { name: req.body.name }
       )
         .then(result => {
